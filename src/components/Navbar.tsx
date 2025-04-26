@@ -48,7 +48,7 @@ const Navbar = () => {
       setIsScrolled(false);
     }
 
-    setIsScrolled((prev) => (location.pathname !== "/" ? true : prev));
+    // setIsScrolled((prev) => (location.pathname !== "/" ? true : prev));
 
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -92,14 +92,16 @@ const Navbar = () => {
             />
           </a>
         ))}
-        <button
-          onClick={() => navigate("/owner")}
-          className={`border px-4 py-1 text-sm font-light rounded-full cursor-pointer ${
-            isScrolled ? "text-black" : "text-white"
-          } transition-all`}
-        >
-          Dashboard
-        </button>
+        {user && (
+          <button
+            onClick={() => navigate("/owner")}
+            className={`border px-4 py-1 text-sm font-light rounded-full cursor-pointer ${
+              isScrolled ? "text-black" : "text-white"
+            } transition-all`}
+          >
+            Dashboard
+          </button>
+        )}
       </div>
 
       {/* Desktop Right */}
