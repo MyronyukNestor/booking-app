@@ -66,7 +66,7 @@ const Navbar = () => {
       }`}
     >
       {/* Logo */}
-      <Link to="/">
+      <Link to="/" onClick={() => scrollTo(0, 0)}>
         <img
           src={assets.logo}
           alt="logo"
@@ -75,11 +75,14 @@ const Navbar = () => {
       </Link>
 
       {/* Desktop Nav */}
-      <div className="hidden md:flex items-center gap-4 lg:gap-8">
+      <div
+        onClick={() => scrollTo(0, 0)}
+        className="hidden md:flex items-center gap-4 lg:gap-8"
+      >
         {navLinks.map((link, i) => (
-          <a
+          <Link
             key={i}
-            href={link.path}
+            to={link.path}
             className={`group flex flex-col gap-0.5 ${
               isScrolled ? "text-gray-700" : "text-white"
             }`}
@@ -90,16 +93,16 @@ const Navbar = () => {
                 isScrolled ? "bg-gray-700" : "bg-white"
               } h-0.5 w-0 group-hover:w-full transition-all duration-300`}
             />
-          </a>
+          </Link>
         ))}
         {user && (
           <button
-            onClick={() => navigate("/owner")}
+            onClick={() => navigate("/my-bookings")}
             className={`border px-4 py-1 text-sm font-light rounded-full cursor-pointer ${
               isScrolled ? "text-black" : "text-white"
             } transition-all`}
           >
-            Dashboard
+            My Bookings
           </button>
         )}
       </div>
@@ -118,9 +121,9 @@ const Navbar = () => {
           <UserButton>
             <UserButton.MenuItems>
               <UserButton.Action
-                label="My Booking"
+                label="My Bookings"
                 labelIcon={<BookIcon />}
-                onClick={() => navigate("/my-booking")}
+                onClick={() => navigate("/my-bookings")}
               />
             </UserButton.MenuItems>
           </UserButton>
@@ -141,9 +144,9 @@ const Navbar = () => {
           <UserButton>
             <UserButton.MenuItems>
               <UserButton.Action
-                label="My Booking"
+                label="My Bookings"
                 labelIcon={<BookIcon />}
-                onClick={() => navigate("/my-booking")}
+                onClick={() => navigate("/my-bookings")}
               />
             </UserButton.MenuItems>
           </UserButton>
@@ -178,10 +181,10 @@ const Navbar = () => {
 
         {user && (
           <button
-            onClick={() => navigate("/owner")}
+            onClick={() => navigate("/my-bookings")}
             className="border px-4 py-1 text-sm font-light rounded-full cursor-pointer transition-all"
           >
-            Dashboard
+            My Bookings
           </button>
         )}
 

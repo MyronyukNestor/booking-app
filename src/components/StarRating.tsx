@@ -1,8 +1,8 @@
 import { assets } from "../assets/assets";
 
-const StarRating = ({ rating }: { rating: number }) => {
+const StarRating = ({ rating, item }: { rating: number; item?: string }) => {
   return (
-    <div className="flex mt-5">
+    <div className={`flex ${item}`}>
       {[...Array(5)].map((_, index) => (
         <img
           key={index}

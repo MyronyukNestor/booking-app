@@ -9,7 +9,7 @@ const Title = ({ title, subTitle, align, font }: TitleProps) => {
   return (
     <div
       className={`flex flex-col justify-center items-center text-center ${
-        align === "left" && "md:items-start md:text-left"
+        align && "md:items-start md:text-left"
       }`}
     >
       <h1 className={`text-4xl md:text-[40px] ${font || "font-playfair"}`}>
